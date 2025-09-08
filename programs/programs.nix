@@ -30,10 +30,6 @@
     enable = true;
     userName = "nypava";
     userEmail = "ny.dev0.em@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      safe.directory = "/etc/nixos";
-    };
   };
 
   programs.obs-studio = {
