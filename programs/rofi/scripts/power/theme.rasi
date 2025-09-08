@@ -1,0 +1,58 @@
+@theme "~/.config/rofi/colors.rasi"
+
+* {
+    font: "JetBrains Mono 9";
+}
+
+window {
+    background-color: @bg-col;
+    text-color: @fg-col;
+  	border-color: @border-col;
+	  width: 350px;
+    location: center;
+    border-radius: 10px;
+}
+
+listview {
+    background-color: @bg-col;
+    columns: 1;
+    lines: 5;
+    spacing: 5px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+mainbox {
+    background-color: @bg-col;
+    children: [ listview ];
+    spacing: 5px;
+    padding: 5px;
+}
+
+element {
+    background-color: @bg-col;
+    text-color: @fg-col;
+    orientation: horizontal;
+	  padding: 8px 8px 8px -20px;
+    border-radius: 7px;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    expand: true;
+    vertical-align: 0.5;
+    margin: 0px 2.5px 0px 2.5px;
+}
+
+element selected {
+    background-color: @selected-bg-col;
+    text-color: @fg-col;
+}

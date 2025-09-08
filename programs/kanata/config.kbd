@@ -1,0 +1,51 @@
+(defcfg
+ process-unmapped-keys yes
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defvar
+  tap-timeout 200
+  hold-timeout 250
+)
+
+(defalias
+  ;;' (switch ((key-timing 1 less-than $tap-timeout)) _ break () (tap-hold-press $tap-timeout $hold-timeout _ rmet) break) ;; change "'" to super key (rmet)
+  ;;lyrnv (switch ((key-timing 1 less-than $tap-timeout)) _ break () (tap-hold-press $tap-timeout $hold-timeout _ (layer-while-held nav)) break) 
+  ;;lyrsy (switch ((key-timing 1 less-than $tap-timeout)) _ break () (tap-hold-press $tap-timeout $hold-timeout _ (layer-while-held symbol)) break) 
+
+  met_grv (switch ((key-timing 1 less-than $tap-timeout)) _ break () (tap-hold-press $tap-timeout $hold-timeout _ rmet) break) ;; using the '1' as as rmet when it is held
+
+  lyrsy (layer-while-held symbol)
+  lyrnv (layer-while-held nav) 
+)
+
+(deflayer base 
+  @met_grv     1    2    3    4    5    6    7    8    9    0    _    _    bspc
+  tab     q    w    e    r    t    y    u    i    o    p    bspc    ]    \
+  @lyrsy  a    s    d    f    g    h    j    k    l    @lyrsy  rsft ret
+  lsft    z    x    c    v    b    n    m    rmet   .    / _
+  lctl    lmet @lyrnv        spc            ralt rmet rctl
+) 
+
+(deflayer symbol
+  grv  _      S-2    S-3    S-4    _    _    _    _    _    _    _    _    bspc
+  tab  S-1    S-9    S-0    S-/    S-8    S-5    S-[    S-]    [    ]    [    ]    \
+  @lyrsy +    '    S-'    .    =    S--    ,    -    S-;    ;    _    ret
+  lsft  S-`   `    /    S-7    S-6    \    S-\    S-,    S-.    _ rsft
+  lctl lmet lalt spc            ralt rmet rctl
+)
+
+(deflayer nav
+  grv  _       _    _    _    _    _    _    _    _    _    _    _    bspc
+  tab     q    w    end    r    t    y    u    i    o    p    [   ]    \
+  @lyrsy home   s    d    C-right    g    left    down    up    right ; '  ret
+  lsft z    x    c    v    C-left    n    m    ,    .    / rsft
+  lctl lmet lalt spc            ralt rmet rctl
+)

@@ -1,0 +1,13 @@
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+set selection-clipboard clipboard
+
+set guioptions "scv"
+
+map d scroll half-down
+map u scroll half-up
+map r set recolor true 
+
+unmap <C-j>
+unmap <C-k>

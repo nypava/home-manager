@@ -1,0 +1,86 @@
+configuration{
+    kb-cancel: "Alt+c,Escape";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    display-drun: "";
+    hide-scrollbar: false;
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    sidebar-mode: false;
+}
+
+@theme "colors"
+
+* {
+    padding: 4px;
+    font: "JetBrains Mono 10";
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+#window {
+    height: 360px;
+    border: 1px;
+    background-color: @bg-col;
+    border-radius: 10px;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    font: "JetBrains Mono 15";
+    background-color: @bg-col;
+    padding: 5px 6px 6px 6px;
+    text-color: @fg-col;
+    margin: 20px 0px 0px 20px;
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 0px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+    cursor: pointer;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 6px;
+    margin: 10px 10px 0px 20px;
+    columns: 2;
+    lines: 5;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 7px;
+    background-color: @bg-col;
+    text-color: @fg-col;
+    border-radius: 7px;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color: @selected-bg-col;
+    text-color: @fg-col; 
+}
+

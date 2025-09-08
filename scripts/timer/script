@@ -1,0 +1,38 @@
+#!/bin/bash
+
+export DISPLAY=:0
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
+minute_time=$(echo "" | bemenu --hb '#467b96' --hf '#dfdfdf' --tb '#467b96' --tf '#dfdfdf' --fn 'Hack' -p "Time:")
+second_time=$(($minute_time * 60))
+
+sowon $second_time &
+pid1=$!
+
+sleep $second_time &
+pid2=$! 
+
+while :
+do 
+  if ! ps -p $pid1 > /dev/null; then
+    kill $pid2
+    exit 1 
+
+  elif ! ps -p $pid2 > /dev/null; then
+    notify-send "aight dude times up! [$minute_time minute]" -t 0 -w & 
+    pid3=$! 
+    playerctl pause
+    mpv ~/.scripts/timer/alarm.mp3 &
+    pid4=$!
+    break
+  fi
+done
+
+while :
+do 
+  if ! ps -p $pid3 > /dev/null; then
+    echo "really nigger"
+    kill $pid4
+    break
+  fi
+done

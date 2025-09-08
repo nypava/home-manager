@@ -1,0 +1,8 @@
+#!/bin/bash
+
+NOTE_DIR="$HOME/base/schedule"
+FILES=$(ls ${NOTE_DIR} -p | grep -v /)
+
+file=$( echo -e "$FILES" | bemenu --hb '#467b96' --hf '#dfdfdf' --tb '#467b96' --tf '#dfdfdf' --fn 'Hack' -p "File: ")
+
+kitty -d $NOTE_DIR -e nvim $file

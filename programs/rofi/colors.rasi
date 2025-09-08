@@ -1,0 +1,9 @@
+* {
+    bg-col: #181825;
+    selected-bg-col: #1e1e2e;
+    border-col: #cdd6f4;
+    fg-col: #cdd6f4;
+    width: 600;
+	  font: "Iosevka Nerd Font 12";
+}
+
