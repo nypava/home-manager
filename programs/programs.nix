@@ -20,6 +20,7 @@
     ".config/kanata".source = toSymlink /kanata;
     ".config/zathura".source = toSymlink /zathura;
     ".config/btop".source = toSymlink /btop;
+    ".config/tmux".source = toSymlink /tmux;
   };
 
   imports = [
