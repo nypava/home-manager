@@ -59,6 +59,9 @@
     nodejs
     lua
     git-credential-manager
+    yarn
+    gcc
+    clang-tools
 
     # Previewers / media players
     imv
@@ -67,6 +70,7 @@
     feh 
     mpv
     vlc
+    libreoffice-qt
 
     # Misc
     kanata
