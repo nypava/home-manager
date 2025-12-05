@@ -8,5 +8,7 @@ in {
    ".scripts/org".source = toSymlink /org;
    ".scripts/controls".source = toSymlink /controls;
    ".scripts/rofi".source = toSymlink /rofi;
+   ".scripts/tmux".source = toSymlink /tmux;
+   ".scripts/misc".source = toSymlink /misc;
   };
 }

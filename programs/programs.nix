@@ -31,6 +31,9 @@
     enable = true;
     userName = "nypava";
     userEmail = "ny.dev0.em@gmail.com";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
 
   programs.obs-studio = {

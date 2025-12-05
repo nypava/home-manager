@@ -8,20 +8,12 @@ return {
   'hrsh7th/vim-vsnip',
   {
     "hrsh7th/nvim-cmp",
-    commit = "b356f2c",
-    pin = true,
+    -- commit = "b356f2c",
+    -- pin = true,
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-      require('lspconfig').html.setup {
-        capabilities = capabilities,
-      }
-
-      require('lspconfig').cssls.setup {
-        capabilities = capabilities,
-      }
 
       local cmp = require'cmp'
 
@@ -48,6 +40,7 @@ return {
           ['<tab>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          { name = 'vsnip' },
           {
             name = "nvim_lsp",
             keyword_length = 1,
@@ -55,7 +48,6 @@ return {
               return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
             end,
           },
-          { name = 'vsnip' },
         }, {
             { name = 'buffer' },
           })

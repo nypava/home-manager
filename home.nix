@@ -1,4 +1,4 @@
-{config, pkgs, ...}: 
+{ config, pkgs, inputs, ... }: 
 {
   home.username = "marble";
   home.homeDirectory = "/home/marble";
@@ -23,10 +23,14 @@
     swappy
     btop
     toilet
+    lxappearance
+    nwg-look
+    pavucontrol
 
     # Terminal/utils
     alacritty
     kitty
+    tmux
     nix-output-monitor
     fastfetch
     zoxide
@@ -35,33 +39,44 @@
     wget
     gnumake
     tree
+    ripgrep
 
-    # Editors 
+    # Editors  
+    zed-editor
     neovim 
     vim 
-  
+    # libsForQt5.kdenlive
+    kdePackages.kdenlive 
+
     # File managers
     lf
     yazi
     nautilus
-
+  
     # Development tools
     zsh-autosuggestions
     zsh-powerlevel10k
     zsh-syntax-highlighting
-    tmux
     git
     python3Packages.pip
     uv
-    python3
-    gcc
-    rustup
-    nodejs
-    lua
     git-credential-manager
     yarn
-    gcc
     clang-tools
+    nix-direnv
+    gnupg
+    gemini-cli
+    lua51Packages.luarocks-nix
+    web-ext
+
+    # compilers, languages
+    zig
+    gcc
+    python3
+    nodejs
+    lua
+    rustup
+    
 
     # Previewers / media players
     imv
@@ -74,7 +89,9 @@
 
     # Misc
     kanata
+    typst
     telegram-desktop
+    ffmpeg
   ];
 
   xresources.properties = {
@@ -90,5 +107,5 @@
     EDITOR = "nvim";
   };
   
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

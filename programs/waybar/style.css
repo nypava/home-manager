@@ -55,7 +55,8 @@ window#waybar.hidden {
   margin: 4px 3px;
   padding: 0px 10px;
   background-color: #1e1e2e;
-  color: #181825;
+  /* color: #181825; */
+  color: #cdd6f4;
   font-size: 11px;
 }
 
@@ -64,10 +65,6 @@ window#waybar.hidden {
     background-color: #f38ba8;
     color: #181825;
   }
-}
-
-#battery {
-  color: #cdd6f4;
 }
 
 #battery.warning {
@@ -95,21 +92,13 @@ window#waybar.hidden {
   color: #a6e3a1;
 }
 
-#cpu {
-  color: #cdd6f4;
-}
 
-#memory {
-  color: #fab387;
-}
 
 #network {
-  color: #94e2d5;
   padding-right: 17px;
 }
 
 #clock {
-  color: #cdd6f4;
   font-size: 11px;
 }
 

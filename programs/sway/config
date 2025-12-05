@@ -62,7 +62,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # background image set
-exec_always swaybg -i ~/.config/wallpaper/current-wal.png
+exec_always swaybg -i ~/.config/wallpaper/wallpaper-1.png
 
 # Use pactl to adjust volume11111b in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -179,7 +179,6 @@ bindsym $mod+t exec sh ~/.scripts/timer/script
 bindsym $mod+$alt+y exec wl-copy $(ip route get 1 | sed -n 's/.*via \([0-9.]\+\).*/\1/p')
 bindsym $mod+ctrl+s exec fsearch
 bindsym $mod+Ctrl+n exec kitty -d ~/base/schedule -e nvim index.norg 
-bindsym $mod+u exec kitty -d ~/base/schedule -e nvim ~/base/schedule/uni-program.norg 
 bindsym $mod+Ctrl+e exec rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c 
 bindsym $mod+Ctrl+c exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+p exec sh ~/.scripts/rofi/power/script.sh

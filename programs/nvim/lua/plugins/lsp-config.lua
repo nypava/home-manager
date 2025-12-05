@@ -10,7 +10,8 @@ return {
     config = function()
       require("mason-lspconfig").setup(
         {
-          ensure_installed = {"lua_ls", "pyright", "biome", "rust_analyzer", "svelte", "tailwindcss", "clangd", "html", "cssls",  "unocss", "ts_ls", "jsonls", "nil" } }
+          ensure_installed = {"lua_ls", "ruff", "rust_analyzer", "svelte", "tailwindcss","html", "cssls",  "unocss", "ts_ls", "jsonls", "nil_ls", "zls", "eslint", "pyright", "clangd"},
+        }
       )
     end,
   },
@@ -26,32 +27,47 @@ return {
         severity_sort = false,
       })
 
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.pyright.setup({file_type={"python"}})
-      lspconfig.biome.setup({})
-      lspconfig.svelte.setup({file_type="svelte"})
-      lspconfig.rust_analyzer.setup({})
-      lspconfig.tailwindcss.setup({file_type={"svelte"}})
-      lspconfig.clangd.setup({})
-      lspconfig.html.setup({file_type={"html"}})
-      lspconfig.cssls.setup({})
-      lspconfig.ts_ls.setup({})
-      lspconfig.unocss.setup({})
-      lspconfig.jsonls.setup({})
-      -- lspconfig.nil.setup({})
-
-      lspconfig.dartls.setup({
-        filetypes = { "dart" },
-        root_dir = function(fname)
-          return lspconfig.util.root_pattern("pubspec.yaml")(fname)
-            or vim.fn.getcwd()
-        end,
+      vim.lsp.config("ruff", {
+        on_attach = function(client, bufnr)
+          if client.name == 'ruff' then
+            client.server_capabilities.hoverProvider = false
+          end
+        end
       })
+
+      vim.lsp.config("pyright", {
+        on_attach = function(client, bufnr)
+          if client.name == 'pyright' then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end
+        end
+      })
+
+      vim.lsp.config("clang", {
+        cmd = { "clangd", "--background-index" },
+        filetypes = { "c", "cpp" },
+      })
+
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("ruff")
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("svelte")
+      vim.lsp.enable("rust_analyzer")
+      vim.lsp.enable("tailwindcss")
+      vim.lsp.enable("html")
+      vim.lsp.enable("cssls")
+      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("eslint")
+      vim.lsp.enable("unocss")
+      vim.lsp.enable("jsonls")
+      vim.lsp.enable("nil_ls")
+      vim.lsp.enable("zls")
+      vim.lsp.enable("setup")
 
       vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>r', vim.lsp.buf.references)
 
-    end
+        end
+      }
   }
-}

@@ -42,7 +42,6 @@ keymap.set("n", "<C-h>", ":vertical resize -5<CR>")
 keymap.set("n", "<A-k>", ":horizontal resize +2<CR>")
 keymap.set("n", "<A-j>", ":horizontal resize -2<CR>")
 
-
 keymap.set('n', '<leader>na', function()
   vim.opt.number = true
   vim.opt.relativenumber = false
@@ -51,6 +50,8 @@ end)
 keymap.set('n', '<leader>nr', function()
   vim.opt.relativenumber = true
 end)
+
+vim.keymap.set({'v', 'n'}, "<leader>g", ":lua vim.lsp.buf.format({ async = true })<CR>")
 
 keymap.set("i", "<Space>", "<Space><C-g>u")
 keymap.set("i", ".", ".<C-g>u")
