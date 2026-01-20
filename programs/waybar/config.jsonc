@@ -3,12 +3,11 @@
   "position": "top",
   "output": "eDP-1",
   "height": 27,
-  "modules-center": [
-  ],
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-right": [
+    "bluetooth",
     "tray",
     "clock",
     "cpu",
@@ -40,6 +39,15 @@
       "3": [],
       "4": []
     }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "", 
+    "format-connected": "  connected [{device_battery_percentage}]",
+    "format-connected-battery": "  connected [{device_battery_percentage}]",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
   },
   "memory": {
     "interval": 3,
@@ -74,7 +82,7 @@
     "nospacing": 1
   },
   "battery": {
-    "format": "<span font-family='Lilex Nerd Font Propo'>{icon}</span> {capacity}",
+    "format": "<span font-family='Lilex Nerd Font Propo'>{icon}</span> {capacity} ",
     "format-icons": {
       "charging": [
         "󰢜",

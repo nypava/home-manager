@@ -45,6 +45,7 @@ window#waybar.hidden {
 }
 
 #memory,
+#bluetooth,
 #battery,
 #backlight,
 #network,
