@@ -26,6 +26,9 @@
     lxappearance
     nwg-look
     pavucontrol
+    dragon-drop
+    jq
+    revanced-cli
 
     # Terminal/utils
     alacritty
@@ -68,6 +71,7 @@
     gemini-cli
     lua51Packages.luarocks-nix
     web-ext
+    nodePackages.live-server
 
     # compilers, languages
     zig
